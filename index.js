@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
-	var originalImageSrc = $('#editable-image').attr('src');
+	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
+	var dropArea = $("#drop-area");
 
 	// Image Editor configuration
 	var csdkImageEditor = new Aviary.Feather({
@@ -20,6 +21,11 @@ $(document).ready(function() {
 
 	// Launch Image Editor
 	$('#edit-image-button').click(function() {
+
+		if (!originalImageSrc) {
+			alert('Drop an image in the drop area first.')
+			return false;
+		}
 
 		// Get the image to be edited
 		// `[0]` gets the image itself, not the jQuery object
