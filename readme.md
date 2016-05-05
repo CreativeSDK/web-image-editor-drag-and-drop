@@ -1,6 +1,6 @@
 # Web (jQuery): Image Editor UI + Drag and Drop API
 
-This is an example of using the Creative SDK for web with the [HTML Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API).
+This is an example of using the Creative SDK Image Editor for Web with the [HTML Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API).
 
 ### Contents
 
