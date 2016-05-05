@@ -47,4 +47,28 @@ $(document).ready(function() {
 			$('#editable-image').attr('src', originalImageSrc);
 		}
 	});
+
+
+	// Drop
+	dropArea.on('dragover', function(e) {
+		if (e.preventDefault) e.preventDefault(); 
+		if (e.stopPropagation) e.stopPropagation(); 
+
+		/* 
+			jQuery passes the jQuery event object.
+			We get the original event object like this:
+		*/
+		e.dataTransfer = e.originalEvent.dataTransfer;
+		
+		e.dataTransfer.dropEffect = 'copy';
+	});
+
+	dropArea.on('drop', function(e) {
+		if (e.preventDefault) e.preventDefault(); 
+		if (e.stopPropagation) e.stopPropagation();
+
+		console.log("dropped");
+
+		return false;
+	});
 });
