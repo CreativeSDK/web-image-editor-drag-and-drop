@@ -55,9 +55,8 @@ $(document).ready(function() {
 	dropArea.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
 		if (e.preventDefault) e.preventDefault(); 
 		if (e.stopPropagation) e.stopPropagation(); 
-	});
-
-	dropArea.on('drop', function(e) {
+	})
+	.on('drop', function(e) {
 
 		// Get the dropped file
 		file = e.originalEvent.dataTransfer.files[0];
