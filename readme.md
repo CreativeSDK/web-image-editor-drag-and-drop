@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/CreativeSDK/web-image-editor-drag-and-drop.png?label=ready&title=Ready)](https://waffle.io/CreativeSDK/web-image-editor-drag-and-drop)
 # Web (jQuery): Image Editor UI + Drag and Drop API
 
 This is an example of using the Creative SDK Image Editor for Web with the [HTML Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API).
