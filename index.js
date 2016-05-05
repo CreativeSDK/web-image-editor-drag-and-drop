@@ -1,12 +1,12 @@
 $(document).ready(function() {
 
-	var imageElement = $('#editable-image');
-	imageElement.hide();
+	// The visibility of these 2 elements is toggled by `toggleDragDrop()`
+	var imageElement = $('#editable-image').hide();
+	var dropArea = $("#drop-area");
 
 	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
-	var dropArea = $("#drop-area");
-	var droppedFiles; // assigned in the `.on('drop', ...)` listener
+
 
 	// Image Editor configuration
 	var csdkImageEditor = new Aviary.Feather({
@@ -62,7 +62,7 @@ $(document).ready(function() {
 	.on('drop', function(e) {
 
 		// Get the dropped file
-		file = e.originalEvent.dataTransfer.files[0];
+		var file = e.originalEvent.dataTransfer.files[0];
 
 		if (fileIsSupported(file)) {
 			setImage(file);
