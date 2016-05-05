@@ -64,17 +64,25 @@ $(document).ready(function() {
 		// Get the dropped file
 		file = e.originalEvent.dataTransfer.files[0];
 
-		if (file.type !== 'image/jpeg' && file.type !== 'image/png') {
-			alert('ahoy!')
+		if (fileIsSupported(file)) {
+			setImage(file);
+			toggleDragDrop();
+			return true;
+		}
+		else {
+			alert('Try a JPEG or PNG image');
 			return false;
 		}
 
-		console.log(file);
-
-		setImage(file);
-		toggleDragDrop();
 	});
 
+	// Checks if the file type is in the array of supported types
+	function fileIsSupported(file) {
+		var supportedFileTypes = ['image/jpeg', 'image/png'];
+		return supportedFileTypes.indexOf(file.type) >= 0 ? true : false;
+	}
+
+	// Toggle visibility of the drag/drop div and img element
 	function toggleDragDrop() {
 		dropArea.toggle();
 		imageElement.toggle();
