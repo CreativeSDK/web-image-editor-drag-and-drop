@@ -3,6 +3,7 @@ $(document).ready(function() {
 	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
 	var dropArea = $("#drop-area");
+	var droppedFiles; // assigned in the `.on('drop', ...)` listener
 
 	// Image Editor configuration
 	var csdkImageEditor = new Aviary.Feather({
@@ -50,25 +51,15 @@ $(document).ready(function() {
 
 
 	// Drop
-	dropArea.on('dragover', function(e) {
+	//// Prevent defaults on drag/drop events
+	dropArea.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
 		if (e.preventDefault) e.preventDefault(); 
 		if (e.stopPropagation) e.stopPropagation(); 
-
-		/* 
-			jQuery passes the jQuery event object.
-			We get the original event object like this:
-		*/
-		e.dataTransfer = e.originalEvent.dataTransfer;
-		
-		e.dataTransfer.dropEffect = 'copy';
 	});
 
 	dropArea.on('drop', function(e) {
-		if (e.preventDefault) e.preventDefault(); 
-		if (e.stopPropagation) e.stopPropagation();
 
-		console.log("dropped");
-
-		return false;
+		// Overwrite FileList with the new file
+		droppedFiles = e.originalEvent.dataTransfer.files;
 	});
 });
