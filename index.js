@@ -70,11 +70,18 @@ $(document).ready(function() {
 		}
 
 		console.log(file);
+
+		setImage(file);
 		toggleDragDrop();
 	});
 
 	function toggleDragDrop() {
 		dropArea.toggle();
 		imageElement.toggle();
+	}
+
+	function setImage(file) {
+		console.log(imageElement);
+		imageElement.attr('src', window.URL.createObjectURL(file));
 	}
 });
