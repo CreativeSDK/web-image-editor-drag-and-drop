@@ -59,7 +59,14 @@ $(document).ready(function() {
 
 	dropArea.on('drop', function(e) {
 
-		// Overwrite FileList with the new file
-		droppedFiles = e.originalEvent.dataTransfer.files;
+		// Get the dropped file
+		file = e.originalEvent.dataTransfer.files[0];
+
+		if (file.type !== 'image/jpeg' && file.type !== 'image/png') {
+			alert('ahoy!')
+			return false;
+		}
+
+		console.log(file);
 	});
 });
