@@ -37,7 +37,7 @@ $(document).ready(function() {
 
 		csdkImageEditor.launch({
 			image: currentImage.id,
-			url: currentImage.src
+			//url: currentImage.src
 		});
 	});
 
@@ -81,7 +81,7 @@ $(document).ready(function() {
 	}
 
 	function setImage(file) {
-		console.log(imageElement);
 		imageElement.attr('src', window.URL.createObjectURL(file));
+		originalImageSrc = imageElement.attr('src');
 	}
 });
