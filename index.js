@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+	var imageElement = $('#editable-image');
+	imageElement.hide();
+
 	var originalImageSrc; // assigned when image file is dropped
 	var currentImage; // assigned when the Edit button is clicked
 	var dropArea = $("#drop-area");
@@ -67,5 +70,11 @@ $(document).ready(function() {
 		}
 
 		console.log(file);
+		toggleDragDrop();
 	});
+
+	function toggleDragDrop() {
+		dropArea.toggle();
+		imageElement.toggle();
+	}
 });
