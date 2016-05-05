@@ -10,7 +10,7 @@ $(document).ready(function() {
 
 	// Image Editor configuration
 	var csdkImageEditor = new Aviary.Feather({
-		apiKey: '<YOUR_KEY_HERE>',
+		apiKey: '31af1c357b8f4655ac0568484ad2ddd4',
 		onSave: function(imageID, newURL) {
 			currentImage.src = newURL;
 			csdkImageEditor.close();
@@ -62,6 +62,15 @@ $(document).ready(function() {
 			alert("Nothing to clear.");
 		}
 	});
+	// Download
+	$('#download-image-button').click(function() {
+		if (imageElement.attr('src')) {
+			downloadImage();
+		}
+		else {
+			alert("Nothing to download.");
+		}
+	});
 
 
 	// Drop
@@ -106,5 +115,10 @@ $(document).ready(function() {
 
 	function clearImage() {
 		imageElement.attr('src', '');
+	}
+
+	function downloadImage() {
+		var url = currentImage.src;
+		console.log(url);
 	}
 });
