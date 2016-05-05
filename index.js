@@ -52,6 +52,17 @@ $(document).ready(function() {
 		}
 	});
 
+	// Clear
+	$('#clear-image-button').click(function() {
+		if (imageElement.attr('src')) {
+			clearImage();
+			toggleDragDrop();
+		}
+		else {
+			alert("Nothing to clear.");
+		}
+	});
+
 
 	// Drop
 	//// Prevent defaults on drag/drop events
@@ -91,5 +102,9 @@ $(document).ready(function() {
 	function setImage(file) {
 		imageElement.attr('src', window.URL.createObjectURL(file));
 		originalImageSrc = imageElement.attr('src');
+	}
+
+	function clearImage() {
+		imageElement.attr('src', '');
 	}
 });
