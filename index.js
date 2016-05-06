@@ -63,27 +63,34 @@ $(document).ready(function() {
 		}
 	});
 
-
 	// Drop
 	//// Prevent defaults on drag/drop events
 	dropArea.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
 		if (e.preventDefault) e.preventDefault(); 
 		if (e.stopPropagation) e.stopPropagation(); 
 	})
+	.on('click', function(e) {
+
+		// Click anywhere in Droparea to upload file
+	  $('#click-upload').click();
+
+	})
 	.on('drop', function(e) {
 
 		// Get the dropped file
 		var file = e.originalEvent.dataTransfer.files[0];
 
-		if (fileIsSupported(file)) {
-			setImage(file);
-			toggleDragDrop();
-			return true;
-		}
-		else {
-			alert('Try a JPEG or PNG image');
-			return false;
-		}
+		validateFileType(file);
+
+	});
+
+	// Click
+	//// Takes file from file chooser
+	$('#click-upload').on('change', function(e){
+
+		var file = e.originalEvent.target.files[0];
+
+		validateFileType(file);
 
 	});
 
@@ -106,5 +113,17 @@ $(document).ready(function() {
 
 	function clearImage() {
 		imageElement.attr('src', '');
+	}
+
+	function validateFileType(file) {
+		if (fileIsSupported(file)) {
+			setImage(file);
+			toggleDragDrop();
+			return true;
+		}
+		else {
+			alert('Try a JPEG or PNG image');
+			return false;
+		}
 	}
 });
