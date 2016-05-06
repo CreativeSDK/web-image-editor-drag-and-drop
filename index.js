@@ -70,8 +70,10 @@ $(document).ready(function() {
 		if (e.stopPropagation) e.stopPropagation(); 
 	})
 	.on('click', function(e) {
-		console.log('clicked');
-	    $('input[type=file]').click();
+
+		// Click anywhere in Droparea to upload file
+	  $('input[type=file]').click();
+	  
 	})
 	.on('drop', function(e) {
 
