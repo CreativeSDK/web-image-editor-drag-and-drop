@@ -31,7 +31,7 @@ $(document).ready(function() {
 	// Reset
 	$('#reset-image-button').click(function() {
 
-		if ($('#editable-image').attr('src') === originalImageSrc) {
+		if ($('#editable-image').attr('src') === originalImageSrc || !originalImageSrc) {
 			alert('Nothing to reset.');
 		}
 		else {
