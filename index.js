@@ -72,8 +72,8 @@ $(document).ready(function() {
 	.on('click', function(e) {
 
 		// Click anywhere in Droparea to upload file
-	  $('input[type=file]').click();
-	  
+	  $('#click-upload').click();
+
 	})
 	.on('drop', function(e) {
 
@@ -92,8 +92,23 @@ $(document).ready(function() {
 
 	});
 
-	// Click to Upload
-	// $('input[type=file]').click();
+	// Click
+	//// Takes file from file chooser
+	$('#click-upload').on('change', function(e){
+
+		var file = e.originalEvent.target.files[0];
+
+		if (fileIsSupported(file)) {
+			setImage(file);
+			toggleDragDrop();
+			return true;
+		}
+		else {
+			alert('Try a JPEG or PNG image');
+			return false;
+		}
+
+	});
 
 	// Checks if the file type is in the array of supported types
 	function fileIsSupported(file) {
