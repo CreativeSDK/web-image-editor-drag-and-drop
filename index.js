@@ -63,12 +63,15 @@ $(document).ready(function() {
 		}
 	});
 
-
 	// Drop
 	//// Prevent defaults on drag/drop events
 	dropArea.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
 		if (e.preventDefault) e.preventDefault(); 
 		if (e.stopPropagation) e.stopPropagation(); 
+	})
+	.on('click', function(e) {
+		console.log('clicked');
+	    $('input[type=file]').click();
 	})
 	.on('drop', function(e) {
 
@@ -86,6 +89,9 @@ $(document).ready(function() {
 		}
 
 	});
+
+	// Click to Upload
+	// $('input[type=file]').click();
 
 	// Checks if the file type is in the array of supported types
 	function fileIsSupported(file) {
