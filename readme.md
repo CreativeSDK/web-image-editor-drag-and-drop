@@ -4,10 +4,18 @@ This is an example of using the Creative SDK Image Editor for Web with the [HTML
 
 ### Contents
 
+- [Live demos](#live)
 - [How to use](#how-to)
 - [Contributing to this repo](#contributing)
 - [Learn more about the Creative SDK](#learn-more)
 - [Get help](#get-help)
+
+
+<a name="live"></a>
+## Live demos
+[You can try a live demo of this repo on its GitHub project page](https://creativesdk.github.io/web-image-editor-drag-and-drop/).
+
+For a more robust live example, go to [the Aviary website](https://www.aviary.com/) and click "Edit Your Photo".
 
 <a name="how-to"></a>
 ## How to use
