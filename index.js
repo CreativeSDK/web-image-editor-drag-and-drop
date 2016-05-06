@@ -80,15 +80,7 @@ $(document).ready(function() {
 		// Get the dropped file
 		var file = e.originalEvent.dataTransfer.files[0];
 
-		if (fileIsSupported(file)) {
-			setImage(file);
-			toggleDragDrop();
-			return true;
-		}
-		else {
-			alert('Try a JPEG or PNG image');
-			return false;
-		}
+		validateFileType(file);
 
 	});
 
@@ -98,15 +90,7 @@ $(document).ready(function() {
 
 		var file = e.originalEvent.target.files[0];
 
-		if (fileIsSupported(file)) {
-			setImage(file);
-			toggleDragDrop();
-			return true;
-		}
-		else {
-			alert('Try a JPEG or PNG image');
-			return false;
-		}
+		validateFileType(file);
 
 	});
 
@@ -129,5 +113,17 @@ $(document).ready(function() {
 
 	function clearImage() {
 		imageElement.attr('src', '');
+	}
+
+	function validateFileType(file) {
+		if (fileIsSupported(file)) {
+			setImage(file);
+			toggleDragDrop();
+			return true;
+		}
+		else {
+			alert('Try a JPEG or PNG image');
+			return false;
+		}
 	}
 });
