@@ -23,22 +23,9 @@ $(document).ready(function() {
 		}
 	});
 
-	// Launch Image Editor
+	// Edit
 	$('#edit-image-button').click(function() {
-
-		if (!originalImageSrc) {
-			alert('Drop an image in the drop area first.')
-			return false;
-		}
-
-		// Get the image to be edited
-		// `[0]` gets the image itself, not the jQuery object
-		currentImage = $('#editable-image')[0];
-
-		csdkImageEditor.launch({
-			image: currentImage.id,
-			//url: currentImage.src
-		});
+		launchImageEditor();
 	});
 
 	// Reset
@@ -119,11 +106,29 @@ $(document).ready(function() {
 		if (fileIsSupported(file)) {
 			setImage(file);
 			toggleDragDrop();
+			launchImageEditor();
 			return true;
 		}
 		else {
 			alert('Try a JPEG or PNG image');
 			return false;
 		}
+	}
+
+	function launchImageEditor() {
+
+		if (!originalImageSrc) {
+			alert('Drop an image in the drop area first.')
+			return false;
+		}
+
+		// Get the image to be edited
+		// `[0]` gets the image itself, not the jQuery object
+		currentImage = $('#editable-image')[0];
+
+		csdkImageEditor.launch({
+			image: currentImage.id,
+			//url: currentImage.src
+		});
 	}
 });
