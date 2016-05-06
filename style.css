@@ -12,5 +12,5 @@
 }
 
 #click-upload {
-  visibility: hidden;
+  display: none;
 }
