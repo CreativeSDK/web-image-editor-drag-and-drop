@@ -15,6 +15,7 @@ $(document).ready(function() {
 			currentImage.src = newURL;
 			csdkImageEditor.close();
 			console.log(newURL);
+
 		},
 		onError: function(errorObj) {
 			console.log(errorObj.code);
@@ -63,7 +64,8 @@ $(document).ready(function() {
 		}
 	});
 	// Download
-	$('#download-image-button').click(function() {
+	$('#download-image-button').click(function(e) {
+		e.preventDefault();
 		if (imageElement.attr('src')) {
 			downloadImage();
 		}
@@ -71,6 +73,10 @@ $(document).ready(function() {
 			alert("Nothing to download.");
 		}
 	});
+// 	$('#download-image-button').click(function(e) {
+//     e.preventDefault();  //stop the browser from following
+//     window.location.href = currentImage.src;
+// });
 
 
 	// Drop
@@ -118,7 +124,11 @@ $(document).ready(function() {
 	}
 
 	function downloadImage() {
-		var url = currentImage.src;
+		var url = currentImage ? currentImage.src : originalImageSrc;
 		console.log(url);
+		var link = document.createElement("a");
+    link.href = url;
+    link.download = 'my-pic';
+    link.click();
 	}
 });
