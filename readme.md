@@ -1,14 +1,21 @@
-[![Stories in Ready](https://badge.waffle.io/CreativeSDK/web-image-editor-drag-and-drop.png?label=ready&title=Ready)](https://waffle.io/CreativeSDK/web-image-editor-drag-and-drop)
 # Web (jQuery): Image Editor UI + Drag and Drop API
 
 This is an example of using the Creative SDK Image Editor for Web with the [HTML Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API).
 
 ### Contents
 
+- [Live demos](#live)
 - [How to use](#how-to)
 - [Contributing to this repo](#contributing)
 - [Learn more about the Creative SDK](#learn-more)
 - [Get help](#get-help)
+
+
+<a name="live"></a>
+## Live demos
+[You can try a live demo of this repo on its GitHub project page](https://creativesdk.github.io/web-image-editor-drag-and-drop/).
+
+For a more robust live example, go to [the Aviary website](https://www.aviary.com/) and click "Edit Your Photo".
 
 <a name="how-to"></a>
 ## How to use
@@ -32,7 +39,13 @@ Just follow the steps below.
 
 Pull requests and GitHub issues are welcome!
 
-If you want to do a pull request, please get in touch with us before you start writing code, so we can avoid duplicated effort or unnecessary work.
+We openly track tickets on Waffle.io:
+[![Stories in Ready](https://badge.waffle.io/CreativeSDK/web-image-editor-drag-and-drop.png?label=ready&title=Ready)](https://waffle.io/CreativeSDK/web-image-editor-drag-and-drop)
+[![Stories In Progress](https://badge.waffle.io/CreativeSDK/web-image-editor-drag-and-drop.svg?label=In%20Progress&title=In%20Progress)](http://waffle.io/CreativeSDK/web-image-editor-drag-and-drop)
+
+If you want to take a ticket, comment on it to let us know. Be sure to work **on your own fork** of the repo so you can submit a pull request when you are done.
+
+Feel free to add tickets as well!
 
 <a name="learn-more"></a>
 ## Learn more about the Creative SDK

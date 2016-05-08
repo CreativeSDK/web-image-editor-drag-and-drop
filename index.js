@@ -15,7 +15,6 @@ $(document).ready(function() {
 			currentImage.src = newURL;
 			csdkImageEditor.close();
 			console.log(newURL);
-
 		},
 		onError: function(errorObj) {
 			console.log(errorObj.code);
@@ -24,28 +23,15 @@ $(document).ready(function() {
 		}
 	});
 
-	// Launch Image Editor
+	// Edit
 	$('#edit-image-button').click(function() {
-
-		if (!originalImageSrc) {
-			alert('Drop an image in the drop area first.')
-			return false;
-		}
-
-		// Get the image to be edited
-		// `[0]` gets the image itself, not the jQuery object
-		currentImage = $('#editable-image')[0];
-
-		csdkImageEditor.launch({
-			image: currentImage.id,
-			//url: currentImage.src
-		});
+		launchImageEditor();
 	});
 
 	// Reset
 	$('#reset-image-button').click(function() {
 
-		if ($('#editable-image').attr('src') === originalImageSrc) {
+		if ($('#editable-image').attr('src') === originalImageSrc || !originalImageSrc) {
 			alert('Nothing to reset.');
 		}
 		else {
@@ -85,20 +71,28 @@ $(document).ready(function() {
 		if (e.preventDefault) e.preventDefault(); 
 		if (e.stopPropagation) e.stopPropagation(); 
 	})
+	.on('click', function(e) {
+
+		// Click anywhere in Droparea to upload file
+	  $('#click-upload').click();
+
+	})
 	.on('drop', function(e) {
 
 		// Get the dropped file
 		var file = e.originalEvent.dataTransfer.files[0];
 
-		if (fileIsSupported(file)) {
-			setImage(file);
-			toggleDragDrop();
-			return true;
-		}
-		else {
-			alert('Try a JPEG or PNG image');
-			return false;
-		}
+		validateFileType(file);
+
+	});
+
+	// Click
+	//// Takes file from file chooser
+	$('#click-upload').on('change', function(e){
+
+		var file = e.originalEvent.target.files[0];
+
+		validateFileType(file);
 
 	});
 
@@ -123,12 +117,41 @@ $(document).ready(function() {
 		imageElement.attr('src', '');
 	}
 
+	function validateFileType(file) {
+		if (fileIsSupported(file)) {
+			setImage(file);
+			toggleDragDrop();
+			launchImageEditor();
+			return true;
+		}
+		else {
+			alert('Try a JPEG or PNG image');
+			return false;
+		}
+	}
+
+	function launchImageEditor() {
+
+		if (!originalImageSrc) {
+			alert('Drop an image in the drop area first.')
+			return false;
+		}
+
+		// Get the image to be edited
+		// `[0]` gets the image itself, not the jQuery object
+		currentImage = $('#editable-image')[0];
+
+		csdkImageEditor.launch({
+			image: currentImage.id,
+			//url: currentImage.src
+		});
+	}
 	function downloadImage() {
 		var url = currentImage ? currentImage.src : originalImageSrc;
 		console.log(url);
 		var link = document.createElement("a");
-    link.href = url;
-    link.download = 'my-pic';
-    link.click();
+		    link.href = url;
+		    link.download = 'my-pic';
+		    link.click();
 	}
 });

@@ -10,3 +10,7 @@
 	color: lightgray;
 	font-size: 24px;
 }
+
+#click-upload {
+  display: none;
+}
