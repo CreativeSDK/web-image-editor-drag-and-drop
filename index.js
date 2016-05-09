@@ -10,7 +10,7 @@ $(document).ready(function() {
 
 	// Image Editor configuration
 	var csdkImageEditor = new Aviary.Feather({
-		apiKey: '31af1c357b8f4655ac0568484ad2ddd4',
+		apiKey: '<YOUR_KEY_HERE>',
 		onSave: function(imageID, newURL) {
 			currentImage.src = newURL;
 			csdkImageEditor.close();
