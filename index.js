@@ -49,9 +49,11 @@ $(document).ready(function() {
 			alert("Nothing to clear.");
 		}
 	});
+
 	// Download
 	$('#download-image-button').click(function(e) {
 		e.preventDefault();
+
 		if (imageElement.attr('src')) {
 			downloadImage();
 		}
@@ -59,10 +61,6 @@ $(document).ready(function() {
 			alert("Nothing to download.");
 		}
 	});
-// 	$('#download-image-button').click(function(e) {
-//     e.preventDefault();  //stop the browser from following
-//     window.location.href = currentImage.src;
-// });
 
 
 	// Drop
@@ -146,13 +144,17 @@ $(document).ready(function() {
 			//url: currentImage.src
 		});
 	}
+
 	function downloadImage() {
 		var url = currentImage ? currentImage.src : originalImageSrc;
-		console.log(url);
 		var link = document.createElement("a");
-		    link.href = url;
-		    //download attr only honored for links within same origin, and therefore won't work once img has been edited
-		    link.download = 'my-pic';
-		    link.click();
+		
+		link.href = url;
+
+		// Download attr 
+		//// Only honored for links within same origin, 
+		//// therefore won't work once img has been edited (i.e., S3 URLs)
+		link.download = 'my-pic';
+		link.click();
 	}
 });
