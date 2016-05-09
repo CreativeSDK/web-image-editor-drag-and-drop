@@ -15,6 +15,7 @@ $(document).ready(function() {
 			currentImage.src = newURL;
 			csdkImageEditor.close();
 			console.log(newURL);
+
 		},
 		onError: function(errorObj) {
 			console.log(errorObj.code);
@@ -63,7 +64,6 @@ $(document).ready(function() {
 //     e.preventDefault();  //stop the browser from following
 //     window.location.href = currentImage.src;
 // });
-
 
 	// Drop
 	//// Prevent defaults on drag/drop events
@@ -117,6 +117,15 @@ $(document).ready(function() {
 		imageElement.attr('src', '');
 	}
 
+<<<<<<< HEAD
+	function downloadImage() {
+		var url = currentImage ? currentImage.src : originalImageSrc;
+		console.log(url);
+		var link = document.createElement("a");
+    link.href = url;
+    link.download = 'my-pic';
+    link.click();
+=======
 	function validateFileType(file) {
 		if (fileIsSupported(file)) {
 			setImage(file);
@@ -133,7 +142,7 @@ $(document).ready(function() {
 	function launchImageEditor() {
 
 		if (!originalImageSrc) {
-			alert('Drop an image in the drop area first.');
+			alert('Drop an image in the drop area first.')
 			return false;
 		}
 
@@ -145,14 +154,6 @@ $(document).ready(function() {
 			image: currentImage.id,
 			//url: currentImage.src
 		});
-	}
-	function downloadImage() {
-		var url = currentImage ? currentImage.src : originalImageSrc;
-		console.log(url);
-		var link = document.createElement("a");
-		    link.href = url;
-		    //download attr only honored for links within same origin, and therefore won't work once img has been edited
-		    link.download = 'my-pic';
-		    link.click();
+>>>>>>> master
 	}
 });
