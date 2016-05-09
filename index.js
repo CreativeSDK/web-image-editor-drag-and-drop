@@ -50,6 +50,19 @@ $(document).ready(function() {
 		}
 	});
 
+	// Download
+	$('#download-image-button').click(function(e) {
+		e.preventDefault();
+
+		if (imageElement.attr('src')) {
+			downloadImage();
+		}
+		else {
+			alert("Nothing to download.");
+		}
+	});
+
+
 	// Drop
 	//// Prevent defaults on drag/drop events
 	dropArea.on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
@@ -118,7 +131,7 @@ $(document).ready(function() {
 	function launchImageEditor() {
 
 		if (!originalImageSrc) {
-			alert('Drop an image in the drop area first.')
+			alert('Drop an image in the drop area first.');
 			return false;
 		}
 
@@ -130,5 +143,18 @@ $(document).ready(function() {
 			image: currentImage.id,
 			//url: currentImage.src
 		});
+	}
+
+	function downloadImage() {
+		var url = currentImage ? currentImage.src : originalImageSrc;
+		var link = document.createElement("a");
+		
+		link.href = url;
+
+		// Download attr 
+		//// Only honored for links within same origin, 
+		//// therefore won't work once img has been edited (i.e., S3 URLs)
+		link.download = 'my-pic';
+		link.click();
 	}
 });
