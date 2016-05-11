@@ -9,8 +9,9 @@
 <body class="container">
 
 	<div class="row">
-		<div class="col-md-12">
-			<h1>Creative SDK Image Editor + Drag and Drop API</h1>
+		<div class="col-md-12 text-center">
+			<h1>Creative SDK Image Editor</h1>
+			<h2>+ HTML Drag and Drop API</h2>
 		</div>
 	</div>
 
@@ -37,10 +38,15 @@
 						<span class="glyphicon glyphicon-remove pull-left padleft" aria-hidden="true"></span> Clear
 					</button>
 				</div>
+				<div class="col-md-12">
+					<button id="about-this-demo-button" class="btn btn-link btn-block button-panel" data-toggle="modal" data-target="#more-info-modal">
+						About this demo...
+					</button>
+				</div>
 			</div>
 		</div>
 
-		<div class="col-md-9">
+		<div class="col-md-10">
 			<input id="click-upload" type="file">
 			<div id="drop-area" >
 				<p>Drop an image here!</p>
@@ -49,9 +55,38 @@
 			<img id="editable-image" class="img-responsive">
 		</div>
 
-	</div>
+	</div> <!-- end .row -->
+
+
+	<div id="more-info-modal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+	    	<div class="modal-content">
+	      		
+	      		<div class="modal-header">
+	        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        		<h4 class="modal-title">About this demo</h4>
+	      		</div>
+
+	      		<div class="modal-body">
+	        		<h3>What is this?</h3>
+					<p>This is a developer demo of the <a href="https://creativesdk.adobe.com/">Adobe Creative SDK</a> Image Editor for Web.</p>
+					<p>Our thanks to <a href="https://github.com/CreativeSDK/web-image-editor-drag-and-drop/graphs/contributors">our GitHub community contributors</a> for their contributions to this sample app!</p>
+					<p>You can learn about the Creative SDK at <a href="https://creativesdk.adobe.com/">creativesdk.com</a>.</p>
+					<h3>Where is the repo?</h3>
+					<p>You can <a href="https://github.com/CreativeSDK/web-image-editor-drag-and-drop">fork this sample app on GitHub</a>, or see our <a href="https://github.com/CreativeSDK/web-getting-started-samples">Getting Started sample app repos for Web</a>.</p>
+					<p>We have even more sample repos for Web, Android, and iOS on <a href="https://github.com/CreativeSDK">the Creative SDK GitHub org</a>.</p>
+	      		</div>
+
+	      		<div class="modal-footer">
+	        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		    	</div>
+
+	    	</div><!-- /.modal-content -->
+	  	</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 	
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="node_modules/bootstrap/js/modal.js"></script>
 	<script type="text/javascript" src="https://dme0ih8comzn4.cloudfront.net/imaging/v3/editor.js"></script>
 	<script type="text/javascript" src="index.js"></script>
 </body>
