@@ -31,7 +31,8 @@ Just follow the steps below.
 
 1. `git clone` this repo and `cd` into it
 1. Run `npm install` (for Bootstrap and jQuery)
-1. Add your Client ID as a string in `config.js` (replacing the string `"<YOUR_KEY_HERE>"`)
+1. Create a file called `config.js` with the following code:```var configObj = { apiKey: '<YOUR_KEY_HERE>' };```
+1. Add your Client ID as a string in config.js (replacing the string `"<YOUR_KEY_HERE>"`) 
 1. Run the app
 
 <a name="contributing"></a>
