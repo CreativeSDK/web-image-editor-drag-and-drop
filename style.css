@@ -1,0 +1,21 @@
+
+.padleft {
+	padding: 0px 0px 0px 20px;
+}
+
+.button-panel {
+	margin-bottom: 10px;
+	border-radius: 0;
+}
+
+#drop-area {
+	border: 5px dashed lightgray;
+	padding: 5em 2em;
+	text-align: center;
+	color: lightgray;
+	font-size: 24px;
+}
+
+#click-upload {
+  display: none;
+}
